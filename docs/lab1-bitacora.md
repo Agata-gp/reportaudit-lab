@@ -59,7 +59,36 @@ te dice eso sobre depender de una sola herramienta?
 
 | Paquete | Versión | ¿Directa o transitiva? (usa `# via`) | CVE / GHSA | Severidad | Corregida en | ¿Explotable en ReportAudit? ¿Por qué? | Decisión |
 |---|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |  |
+| werkzeug | 3.0.1 | Transitiva (# via flask) | GHSA-2g68-c3qc-8985 | High | 3.0.3 | Pendiente de confirmar. | Actualizar prioritariamente. |
+| werkzeug | 3.0.1 | Transitiva (# via flask) | GHSA-q34m-jh98-gwm2 | Medium | 3.0.6 | Pendiente de confirmar. | Actualizar. |
+| jinja2 | 3.1.2 | Transitiva (# via flask) | GHSA-h75v-3vvj-5mfj | Medium | 3.1.4 | No se observa uso de plantillas Jinja2. Pendiente de confirmar. | Actualizar. |
+| jinja2 | 3.1.2 | Transitiva (# via flask) | GHSA-h5c8-rqwp-cp95 | Medium | 3.1.3 | No se observa uso de plantillas Jinja2. Pendiente de confirmar. | Actualizar. |
+| werkzeug | 3.0.1 | Transitiva (# via flask) | GHSA-f9vj-2wh5-fj8j | Medium | 3.0.6 | Pendiente de confirmar. | Actualizar. |
+| werkzeug | 3.0.1 | Transitiva (# via flask) | GHSA-29vq-49wr-vm6x | Medium | 3.1.6 | Pendiente de confirmar. | Actualizar. |
+| werkzeug | 3.0.1 | Transitiva (# via flask) | GHSA-hgf8-39gv-g3f2 | Medium | 3.1.4 | Pendiente de confirmar. | Actualizar. |
+| jinja2 | 3.1.2 | Transitiva (# via flask) | GHSA-q2x7-8rv6-6q7h | Medium | 3.1.5 | El servicio devuelve respuestas JSON mediante jsonify. Pendiente de confirmar. | Actualizar. |
+| jinja2 | 3.1.2 | Transitiva (# via flask) | GHSA-cpwx-vrp4-4pq7 | Medium | 3.1.6 | No se observa uso de plantillas Jinja2. Pendiente de confirmar. | Actualizar. |
+| werkzeug | 3.0.1 | Transitiva (# via flask) | GHSA-87hc-h4r5-73f7 | Medium | 3.1.5 | Pendiente de confirmar. | Actualizar. |
+| werkzeug | 3.0.1 | Transitiva (# via flask) | GHSA-g6x2-hccm-hh4m | Medium | 3.1.9 | Pendiente de confirmar. | Actualizar. |
+| jinja2 | 3.1.2 | Transitiva (# via flask) | GHSA-gmj6-6f8f-6699 | Medium | 3.1.5 | No se observa uso de plantillas Jinja2. Pendiente de confirmar. | Actualizar. |
+| flask | 3.0.0 | Directa (# via -r requirements.in) | GHSA-68rp-wp8r-4726 | Low | 3.1.3 | El servicio utiliza Flask directamente. Pendiente de confirmar. | Actualizar. |
+
+**Conclusión del triage:**
+
+Grype ha detectado 13 vulnerabilidades:
+
+- 1 de severidad alta.
+- 11 de severidad media.
+- 1 de severidad baja.
+- 1 en dependencias directas.
+- 12 en dependencias transitivas.
+
+La mayoría de las vulnerabilidades detectadas pertenecen a dependencias
+transitivas de Flask. Esto demuestra la importancia de analizar tanto las
+dependencias directas como las transitivas.
+
+Se propone actualizar las dependencias y repetir el análisis con Grype
+para comprobar los resultados.
 
 **Comparación con Dependabot** (Parte H): ¿las alertas coinciden con Grype? Explica
 cualquier diferencia.
